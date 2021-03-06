@@ -11,4 +11,4 @@
 
 ## Boxes
 
-[time](/hack-the-box/boxes/time)
+[time](/pages/hack-the-box/boxes/time)
