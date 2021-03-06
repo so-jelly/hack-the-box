@@ -6,11 +6,9 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = true
   config.vm.box = "kalilinux/rolling"
   config.vm.box_check_update = false
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-  # config.vm.network "private_network", ip: "192.168.33.10"
-  # config.vm.network "public_network"
-  config.vm.synced_folder "tmp", "/home/vagrant/vagrant"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "tmp/", "/home/vagrant/tmp", owner: "vagrant"
+  config.vm.synced_folder "dotfiles/", "/home/vagrant/dotfiles", owner: "vagrant"
   config.vm.provider "virtualbox" do |vb|
     # vb.gui = false
     vb.cpus = 4
@@ -19,7 +17,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision "shell", inline: <<-SHELL
     echo '' > /etc/motd
+    curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
     sudo -u vagrant touch /home/vagrant/.hushlogin
-    sudo -u vagrant curl -s https://raw.githubusercontent.com/so-jelly/hack-the-box/master/dotfiles/.zshrc > /home/vagrant/.zshrc
+    sudo -u vagrant ln -sf dotfiles/.zshrc dotfiles/.zsh_plugins.txt ./
   SHELL
 end

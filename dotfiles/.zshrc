@@ -1,3 +1,6 @@
+source <(antibody init)
+antibody bundle <~/.zsh_plugins.txt
+
 autoload -U colors
 colors
 autoload -U compinit
@@ -41,7 +44,13 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 _setup_ps1() {
   GLYPH="⬆"
   [ "x$KEYMAP" = "xvicmd" ] && GLYPH="⬇"
+
   PS1="%(?.%F{green}.%F{magenta})$GLYPH%f"
+
+  [ -e /sys/class/net/tun0 ] &&
+    VPN_STATUS="%F{green}VPN%f" ||
+    VPN_STATUS="%K{white}%F{red}VPN%k%f"
+  PS1="${VPN_STATUS}${PS1}"
 }
 _setup_ps1
 
