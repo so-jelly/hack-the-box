@@ -1,6 +1,6 @@
 # Hack the box
 
-[htb](hackthebox.eu)
+[hackthebox](https://hackthebox.eu)
 
 ## Tools
 <!-- TODO ref links -->
@@ -11,4 +11,4 @@
 
 ## Boxes
 
-[time](/pages/hack-the-box/boxes/time)
+- [time](boxes/time)
