@@ -1,7 +1,3 @@
-layout: page
-title: "Time - Hack The Box"
-permalink: /boxes/time
-
 # Time
 
 - [Time](#time)
