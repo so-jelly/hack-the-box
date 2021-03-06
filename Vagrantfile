@@ -20,6 +20,6 @@ Vagrant.configure("2") do |config|
     # install antibody
     curl -sfL git.io/antibody | sh -s - -b /usr/local/bin
     # update dotfiles
-    sudo -u vagrant find /vagrant/dotfiles -type f -exec ln -sf {} ~ \;
+    sudo -u vagrant sh -c "find /vagrant/dotfiles -type f | xargs -I {} ln -sf {} ~"
   SHELL
 end

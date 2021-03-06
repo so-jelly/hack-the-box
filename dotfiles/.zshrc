@@ -84,3 +84,4 @@ export GO111MODULE=on
 export PATH=$PATH:$GOPATH/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias htbconnect='sudo /vagrant/connect.sh /vagrant/htb.ovpn&'
