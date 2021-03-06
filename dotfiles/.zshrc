@@ -39,8 +39,8 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
 _setup_ps1() {
-  GLYPH="▲"
-  [ "x$KEYMAP" = "xvicmd" ] && GLYPH="▼"
+  GLYPH="⬆"
+  [ "x$KEYMAP" = "xvicmd" ] && GLYPH="⬇"
   PS1="%(?.%F{green}.%F{magenta})$GLYPH%f"
 }
 _setup_ps1
